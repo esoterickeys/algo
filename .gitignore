@@ -1,5 +1,6 @@
 # Custom
 .idea*
+algo.iml
 
 # Compiled class file
 *.class
