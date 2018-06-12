@@ -78,7 +78,7 @@ public class Fuzz {
      */
     private boolean testFuzz(int value) {
         if (value % 3 == 0) {
-            System.out.println("fuzz.Fuzz");
+            System.out.println("Fuzz");
             return true;
         }
 
