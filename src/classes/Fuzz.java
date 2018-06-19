@@ -13,12 +13,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package fuzz;
+package classes;
 
 /**
  * Solves the following problem:
  *
- * <p>Given an array of positive numbers, print fuzz.Fuzz if the number is divisible by 3, print Buzz if the number is
+ * <p>Given an array of positive numbers, print classes.Fuzz if the number is divisible by 3, print Buzz if the number is
  * divisible by 5, print FuzzBuzz if the number is divisible by both, otherwise print the number itself.</p>
  */
 public class Fuzz {
