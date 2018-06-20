@@ -26,7 +26,7 @@ public class Graph {
     Set<Point> points;
 
     //
-    Set<Edge> edges;
+    Set<Line> lines;
 
     /**
      *
@@ -37,11 +37,11 @@ public class Graph {
 
     /**
      * @param points
-     * @param edges
+     * @param lines
      */
-    public Graph(Set<Point> points, Set<Edge> edges) {
+    public Graph(Set<Point> points, Set<Line> lines) {
         this.points = points;
-        this.edges = edges;
+        this.lines = lines;
     }
 
     public Set<Point> getPoints() {
@@ -52,11 +52,11 @@ public class Graph {
         this.points = points;
     }
 
-    public Set<Edge> getEdges() {
-        return edges;
+    public Set<Line> getLines() {
+        return lines;
     }
 
-    public void setEdges(Set<Edge> edges) {
-        this.edges = edges;
+    public void setLines(Set<Line> lines) {
+        this.lines = lines;
     }
 }

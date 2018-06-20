@@ -18,7 +18,7 @@ package types;
 /**
  *
  */
-public class Edge implements Comparable<Edge> {
+public class Line implements Comparable<Line> {
     //
     private int id;
 
@@ -31,7 +31,7 @@ public class Edge implements Comparable<Edge> {
     /**
      *
      */
-    public Edge() {
+    public Line() {
     }
 
     /**
@@ -39,7 +39,7 @@ public class Edge implements Comparable<Edge> {
      * @param sourceId
      * @param targetId
      */
-    public Edge(int id, int sourceId, int targetId) {
+    public Line(int id, int sourceId, int targetId) {
         this.id = id;
         this.sourceId = sourceId;
         this.targetId = targetId;
@@ -50,7 +50,7 @@ public class Edge implements Comparable<Edge> {
      * @return
      */
     @Override
-    public int compareTo(Edge o) {
+    public int compareTo(Line o) {
         int diff = this.getId() - o.getId();
 
         if (diff == 0) {
@@ -95,7 +95,7 @@ public class Edge implements Comparable<Edge> {
             return false;
         }
 
-        Edge other = (Edge) obj;
+        Line other = (Line) obj;
         if (getId() != other.getId()) {
             return false;
         }

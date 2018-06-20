@@ -16,7 +16,7 @@
 package classes;
 
 import org.junit.Test;
-import types.Edge;
+import types.Line;
 import types.Graph;
 import types.Point;
 
@@ -42,24 +42,31 @@ public class ShortPathTest {
         points.add(new Point(6, 4, 3));
         points.add(new Point(7, 5, 5));
 
-        Set<Edge> edges = new HashSet<>();
-        edges.add(new Edge(0, 0, 1));
-        edges.add(new Edge(1, 1, 2));
-        edges.add(new Edge(2, 2, 3));
-        edges.add(new Edge(3, 1, 5));
-        edges.add(new Edge(4, 5, 4));
-        edges.add(new Edge(5, 4, 6));
-        edges.add(new Edge(6, 3, 6));
-        edges.add(new Edge(7, 6, 7));
+        Set<Line> lines = new HashSet<>();
+        lines.add(new Line(0, 0, 1));
+        lines.add(new Line(1, 1, 2));
+        lines.add(new Line(2, 2, 3));
+        lines.add(new Line(3, 1, 5));
+        lines.add(new Line(4, 5, 4));
+        lines.add(new Line(5, 4, 6));
+        lines.add(new Line(6, 3, 6));
+        lines.add(new Line(7, 6, 7));
+        lines.add(new Line(8, 1, 7));
 
 
         Graph graph = new Graph();
         graph.setPoints(points);
+        graph.setLines(lines);
 
         ShortPath sp = new ShortPath(graph);
 
         try {
-            sp.execute(0, 6);
+            for(int i = 0; i <= 7; i++) {
+                for(int j= 0; j <= 7; j++) {
+                    sp.execute(i, j);
+                }
+            }
+
         } catch (Exception e) {
             System.out.println("Failed to traverse points on graph.");
         }
