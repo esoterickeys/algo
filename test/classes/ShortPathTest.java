@@ -28,7 +28,7 @@ import java.util.*;
 public class ShortPathTest {
 
     /**
-     *
+     * Tests a set of 8 points with 9 inter-connecting lines, challenges the algorithm with every combination.
      */
     @Test
     public void testGraph() {
@@ -60,15 +60,15 @@ public class ShortPathTest {
 
         ShortPath sp = new ShortPath(graph);
 
-        try {
-            for(int i = 0; i <= 7; i++) {
-                for(int j= 0; j <= 7; j++) {
-                    sp.execute(i, j);
+        for (int i = 0; i <= 7; i++) {
+            for (int j = 0; j <= 7; j++) {
+                if (i == j) {
+                    continue;
                 }
-            }
 
-        } catch (Exception e) {
-            System.out.println("Failed to traverse points on graph.");
+                sp.execute(i, j);
+            }
         }
+
     }
 }

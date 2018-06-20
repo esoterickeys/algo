@@ -18,24 +18,26 @@ package types;
 import java.util.Set;
 
 /**
- *
+ * Describes a cartesian coordinate graph with points and lines connecting the points.
  */
 public class Graph {
 
-    //
+    // Set of points in the graph
     Set<Point> points;
 
-    //
+    // Set of lines in the graph
     Set<Line> lines;
 
     /**
-     *
+     * Default constructor.
      */
     public Graph() {
 
     }
 
     /**
+     * Loader constructor with inputs for points and lines.
+     *
      * @param points
      * @param lines
      */

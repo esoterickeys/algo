@@ -16,7 +16,7 @@
 package types;
 
 /**
- * Contains information describing a point and any connectors to other points in a graph.
+ * Contains information describing a point in a graph.
  */
 public class Point implements Comparable<Point> {
 
@@ -36,7 +36,7 @@ public class Point implements Comparable<Point> {
     }
 
     /**
-     * Point constructor with loader params.
+     * Loader constructor with inputs for id, and coordinates.
      *
      * @param id
      * @param x

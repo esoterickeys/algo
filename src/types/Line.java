@@ -16,25 +16,28 @@
 package types;
 
 /**
- *
+ * Describes a line within a graph connecting two points.
  */
 public class Line implements Comparable<Line> {
-    //
+
+    // The ID of the line
     private int id;
 
-    //
+    // The first point this line connects between
     private int sourceId;
 
-    //
+    // The second point this line connects between
     private int targetId;
 
     /**
-     *
+     * Default constructor.
      */
     public Line() {
     }
 
     /**
+     * Loader constructor with inputs for id, and point IDs.
+     *
      * @param id
      * @param sourceId
      * @param targetId
