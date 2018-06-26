@@ -15,9 +15,9 @@
  */
 package classes;
 
-import types.Graph;
-import types.Line;
-import types.Point;
+import types.sp.Graph;
+import types.sp.Line;
+import types.sp.Point;
 
 import java.text.DecimalFormat;
 import java.util.*;

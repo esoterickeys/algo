@@ -13,58 +13,28 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package types;
+package types.search;
 
-/**
- * Describes a line within a graph connecting two points.
- */
-public class Line implements Comparable<Line> {
+import java.util.Set;
 
-    // The ID of the line
+public class Vertex implements Comparable<Vertex> {
+
     private int id;
 
-    // The first point this line connects between
-    private int sourceId;
+    private Set<Vertex> children;
 
-    // The second point this line connects between
-    private int targetId;
-
-    /**
-     * Default constructor.
-     */
-    public Line() {
-    }
-
-    /**
-     * Loader constructor with inputs for id, and point IDs.
-     *
-     * @param id
-     * @param sourceId
-     * @param targetId
-     */
-    public Line(int id, int sourceId, int targetId) {
+    public Vertex(int id) {
         this.id = id;
-        this.sourceId = sourceId;
-        this.targetId = targetId;
     }
+
 
     /**
      * @param o
      * @return
      */
     @Override
-    public int compareTo(Line o) {
-        int diff = this.getId() - o.getId();
-
-        if (diff == 0) {
-            diff = this.getSourceId() - o.getSourceId();
-        }
-
-        if (diff == 0) {
-            diff = this.getTargetId() - o.getTargetId();
-        }
-
-        return diff;
+    public int compareTo(Vertex o) {
+        return this.getId() - o.getId();
     }
 
     /**
@@ -98,7 +68,7 @@ public class Line implements Comparable<Line> {
             return false;
         }
 
-        Line other = (Line) obj;
+        Vertex other = (Vertex) obj;
         if (getId() != other.getId()) {
             return false;
         }
@@ -114,19 +84,11 @@ public class Line implements Comparable<Line> {
         this.id = id;
     }
 
-    public int getSourceId() {
-        return sourceId;
+    public Set<Vertex> getChildren() {
+        return children;
     }
 
-    public void setSourceId(int sourceId) {
-        this.sourceId = sourceId;
-    }
-
-    public int getTargetId() {
-        return targetId;
-    }
-
-    public void setTargetId(int targetId) {
-        this.targetId = targetId;
+    public void setChildren(Set<Vertex> children) {
+        this.children = children;
     }
 }

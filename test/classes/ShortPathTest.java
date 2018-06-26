@@ -16,9 +16,9 @@
 package classes;
 
 import org.junit.Test;
-import types.Line;
-import types.Graph;
-import types.Point;
+import types.sp.Line;
+import types.sp.Graph;
+import types.sp.Point;
 
 import java.util.*;
 

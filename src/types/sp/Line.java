@@ -13,39 +13,39 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package types;
+package types.sp;
 
 /**
- * Contains information describing a point in a graph.
+ * Describes a line within a graph connecting two points.
  */
-public class Point implements Comparable<Point> {
+public class Line implements Comparable<Line> {
 
-    // ID of the point
+    // The ID of the line
     private int id;
 
-    // X Coordinate
-    private int x;
+    // The first point this line connects between
+    private int sourceId;
 
-    // Y Coordinate
-    private int y;
+    // The second point this line connects between
+    private int targetId;
 
     /**
      * Default constructor.
      */
-    public Point() {
+    public Line() {
     }
 
     /**
-     * Loader constructor with inputs for id, and coordinates.
+     * Loader constructor with inputs for id, and point IDs.
      *
      * @param id
-     * @param x
-     * @param y
+     * @param sourceId
+     * @param targetId
      */
-    public Point(int id, int x, int y) {
+    public Line(int id, int sourceId, int targetId) {
         this.id = id;
-        this.x = x;
-        this.y = y;
+        this.sourceId = sourceId;
+        this.targetId = targetId;
     }
 
     /**
@@ -53,15 +53,15 @@ public class Point implements Comparable<Point> {
      * @return
      */
     @Override
-    public int compareTo(Point o) {
+    public int compareTo(Line o) {
         int diff = this.getId() - o.getId();
 
         if (diff == 0) {
-            diff = this.getX() - o.getX();
+            diff = this.getSourceId() - o.getSourceId();
         }
 
         if (diff == 0) {
-            diff = this.getY() - o.getY();
+            diff = this.getTargetId() - o.getTargetId();
         }
 
         return diff;
@@ -98,7 +98,7 @@ public class Point implements Comparable<Point> {
             return false;
         }
 
-        Point other = (Point) obj;
+        Line other = (Line) obj;
         if (getId() != other.getId()) {
             return false;
         }
@@ -114,19 +114,19 @@ public class Point implements Comparable<Point> {
         this.id = id;
     }
 
-    public int getX() {
-        return x;
+    public int getSourceId() {
+        return sourceId;
     }
 
-    public void setX(int x) {
-        this.x = x;
+    public void setSourceId(int sourceId) {
+        this.sourceId = sourceId;
     }
 
-    public int getY() {
-        return y;
+    public int getTargetId() {
+        return targetId;
     }
 
-    public void setY(int y) {
-        this.y = y;
+    public void setTargetId(int targetId) {
+        this.targetId = targetId;
     }
 }
