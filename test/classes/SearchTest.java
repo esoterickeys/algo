@@ -21,33 +21,51 @@ import types.search.Vertex;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+/**
+ * Test class for BFS and DFS algorithms. Contains dynamically programmable tree to test different structures.
+ */
 public class SearchTest {
+    // ID counter for building the tree
     int vertexId = 0;
-    int finalVertexId = 50;
-    int numberChildren = 5;
 
+    // Number of vertices in the tree, watch memory usage!
+    int finalVertexId = 1000;
+
+    // The number of children for each constructed vertex in the tree
+    int numberChildren = 4;
+
+    // Cached target vertex ID to search for
+    int targetVertexId = 899;
+
+    /**
+     * Tests Breadth First Search algorithm by finding the target vertex.
+     */
     @Test
     public void testBfs() {
         Vertex origin = new Vertex(vertexId++);
-
         buildTree(origin);
 
         BreadthFirstSearch bfs = new BreadthFirstSearch(origin);
-
-        bfs.execute(44);
+        bfs.execute(targetVertexId);
     }
 
+    /**
+     * Tests Depth First Search algorithm by finding the target vertex.
+     */
     @Test
     public void testDfs() {
         Vertex origin = new Vertex(vertexId++);
-
         buildTree(origin);
 
         DepthFirstSearch bfs = new DepthFirstSearch(origin);
-
-        bfs.execute(44);
+        bfs.execute(targetVertexId);
     }
 
+    /**
+     * Constructs a vertex tree. Ability to customize number of vertices, and children per vertex is integrated.
+     *
+     * @param v
+     */
     private void buildTree(Vertex v) {
         if (vertexId < finalVertexId) {
             Set<Vertex> vertices = new LinkedHashSet<Vertex>();

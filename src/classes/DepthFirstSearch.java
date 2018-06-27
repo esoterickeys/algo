@@ -20,44 +20,93 @@ import types.search.Vertex;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+/**
+ * Searches through a tree set of vertices, starting from the 0th vertex, for the vertex with the given target ID.
+ * For each given vertex, each child is checked linearly. Each Nth child layer below the given vertex is checked causing
+ * the algorithm to explore the limit of each path within a branch before moving to the next parallel branch.
+ */
 public class DepthFirstSearch {
 
+    // The 0th vertex within the tree
     private Vertex origin;
 
+    // The ID of the vertex to find
     private int targetVertexId;
 
+    // Ordered cache of visited vertices for post process validation
     private StringBuilder sb;
 
+    // Termination trigger for the recursive algorithm
     private boolean targetFound = false;
 
+    /**
+     * Loader constructor with input parameter for the 0th vertex.
+     *
+     * @param origin
+     */
     public DepthFirstSearch(Vertex origin) {
         this.origin = origin;
     }
 
+    /**
+     * Initializes the class members, executes the recursive DFS algorithm, and writes to console the ordered set
+     * of visits the algorithm took to reach the target.
+     *
+     * @param targetVertexId
+     */
     public void execute(int targetVertexId) {
-        this.targetVertexId = targetVertexId;
-
-        sb = new StringBuilder();
-        sb.append("Vertex Search Pattern: {");
+        initialize(targetVertexId);
 
         Set<Vertex> originSet = new LinkedHashSet<>();
         originSet.add(origin);
 
         dfs(originSet);
 
-        System.out.print(sb.toString());
+        writeVisitation();
     }
 
+    /**
+     * Caches the target vertex ID, resets the algorithm termination trigger, and initiates the string containing visited vertices.
+     *
+     * @param targetVertexId
+     */
+    private void initialize(int targetVertexId) {
+        this.targetVertexId = targetVertexId;
+        targetFound = false;
+
+        sb = new StringBuilder();
+        sb.append("Vertex Search Pattern: {");
+    }
+
+    /**
+     * Recursive Depth First Search - the input vertices are the child vertices of a single parent. For each vertex check
+     * if the target has been found other break the current loop. If the target is not found, check if this vertex is the
+     * target vertex. If it is, trigger the target found rolling up the call stack. If the target is not reached,
+     * recursively call dfs() with the list of children from the current vertex.
+     *
+     * @param vertices
+     */
     private void dfs(Set<Vertex> vertices) {
         for (Vertex v : vertices) {
-            if (v.getId() != targetVertexId && !targetFound) {
-                sb.append(v.getId() + ", ");
-                dfs(v.getChildren());
-            } else if (!targetFound) {
-                sb.append(v.getId() + "} END.");
-                targetFound = true;
+            if (!targetFound) {
+                if (v.getId() != targetVertexId) {
+                    sb.append(v.getId() + ", ");
+                    dfs(v.getChildren());
+                } else {
+                    sb.append(v.getId() + "} END.");
+                    targetFound = true;
+                    break;
+                }
+            } else {
                 break;
             }
         }
+    }
+
+    /**
+     * Simple console write of vertices visited.
+     */
+    private void writeVisitation() {
+        System.out.print(sb.toString());
     }
 }

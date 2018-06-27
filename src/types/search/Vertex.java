@@ -17,12 +17,22 @@ package types.search;
 
 import java.util.Set;
 
+/**
+ * Representation of a node on a tree. Contains an ID and a set of child vertices.
+ */
 public class Vertex implements Comparable<Vertex> {
 
+    // Non-unique ID
     private int id;
 
+    // Unique list of child vertices
     private Set<Vertex> children;
 
+    /**
+     * Loader constructor with parameter for ID.
+     *
+     * @param id
+     */
     public Vertex(int id) {
         this.id = id;
     }
@@ -34,7 +44,13 @@ public class Vertex implements Comparable<Vertex> {
      */
     @Override
     public int compareTo(Vertex o) {
-        return this.getId() - o.getId();
+        int diff = this.getId() - o.getId();
+
+        if (diff == 0) {
+            diff = this.getChildren().size() - o.getChildren().size();
+        }
+
+        return diff;
     }
 
     /**
@@ -44,8 +60,9 @@ public class Vertex implements Comparable<Vertex> {
     public int hashCode() {
         final int prime = 31;
         int hash = 1;
+        int size = (children != null) ? children.size() : 0;
 
-        hash = Math.multiplyExact(prime, hash) + id;
+        hash = Math.multiplyExact(prime, hash) + id + size;
 
         return hash;
     }
