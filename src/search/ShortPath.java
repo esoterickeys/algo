@@ -13,11 +13,11 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package classes;
+package search;
 
-import types.sp.Graph;
-import types.sp.Line;
-import types.sp.Point;
+import types.path.Graph;
+import types.path.Line;
+import types.path.Point;
 
 import java.text.DecimalFormat;
 import java.util.*;

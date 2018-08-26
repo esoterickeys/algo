@@ -13,40 +13,31 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package classes;
 
-import org.junit.Test;
+package euler;
+
+import java.util.Arrays;
 
 /**
- * Test class for FuzzBuzz algorithm.
+ *
  */
-public class FuzzTest  {
+public class SmallestMultiple {
 
-    /**
-     * Test linear array of 100 elements ranging from 1 to 100.
-     */
-    @Test
-    public void testLinearArray() {
-        Fuzz fuzz = new Fuzz();
 
-        int[] array = new int[100];
+    public long smallestMultiple() {
+        int open = 1;
+        int close = 20;
 
-        for (int i = 0; i < 100; i++) {
-            array[i] = i + 1;
+        for (int i = open; i <= close; i++) {
+            int multiple = open;
+
+            while (multiple % i != 0) {
+                multiple += open;
+            }
+
+            open = multiple;
         }
 
-        fuzz.execute(array);
-    }
-
-    /**
-     * Randomly entered small array.
-     */
-    @Test
-    public void testRandomArray() {
-        Fuzz fuzz = new Fuzz();
-
-        int[] array = {3, 30, 55, 10, 11, 13, 16, 37, 92, 74, 38, 65, 55, 12, 111};
-
-        fuzz.execute(array);
+        return open;
     }
 }

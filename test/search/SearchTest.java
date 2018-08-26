@@ -13,9 +13,11 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package classes;
+package search;
 
 import org.junit.Test;
+import search.BreadthFirstSearch;
+import search.DepthFirstSearch;
 import types.search.Vertex;
 
 import java.util.LinkedHashSet;
