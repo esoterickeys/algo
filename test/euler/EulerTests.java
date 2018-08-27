@@ -17,6 +17,8 @@ package euler;
 
 import org.junit.Test;
 
+import java.math.BigInteger;
+
 /**
  *
  */
@@ -87,5 +89,78 @@ public class EulerTests {
         long prime = o.tenThousandthPrime();
 
         System.out.println(prime);
+    }
+
+    @Test
+    public void largestProductSeries() {
+        LargestProductSeries o = new LargestProductSeries();
+
+        BigInteger product = o.largestProductInSeries();
+
+        System.out.println(product.toString());
+    }
+
+    @Test
+    public void findTriplet() {
+        PythagoreanTriplet o = new PythagoreanTriplet();
+
+        int product = o.findTriplet();
+
+        System.out.println(product);
+    }
+
+    @Test
+    public void sumPrimes() {
+        SumPrimes o = new SumPrimes();
+
+        long sum = o.sumPrimesBelowTwoMillion();
+
+        System.out.println(sum);
+    }
+
+    @Test
+    public void largestProduct() {
+        LargestProduct o = new LargestProduct();
+
+        long product = o.largestProduct();
+
+        System.out.println(product);
+    }
+
+    @Test
+    public void largestDivisibleTriangle() {
+        TriangleDivision o = new TriangleDivision();
+
+        long sum = o.largestDivisibleTriangle();
+
+        System.out.println(sum);
+    }
+
+    @Test
+    public void largeSum() {
+        LargeSum o = new LargeSum();
+
+        System.out.println(o.largestProduct());
+    }
+
+    @Test
+    public void longestCollatz() {
+        LongestCollatz o = new LongestCollatz();
+
+        System.out.println(o.findLongestChain());
+    }
+
+    @Test
+    public void latticePath() {
+        LatticePaths o = new LatticePaths();
+
+        System.out.println(o.findRoutes());
+    }
+
+    @Test
+    public void powerDigitSum() {
+        PowerDigitSum o = new PowerDigitSum();
+
+        System.out.println(o.sum());
     }
 }
